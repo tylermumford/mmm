@@ -1,0 +1,17 @@
+version = "0.0.1"
+
+# I'm imagining some commands for a static site built with Hugo.
+[command.build]
+script = "hugo"
+input_glob = "**"
+output_glob = "docs/"
+
+[command.draft]
+script = [
+	"cat post-draft.md > content/post/new-draft.md",
+	"date >> content/post/new-draft.md"
+]
+_deprecated = true
+
+[command.server]
+script = "hugo server --buildDrafts"
