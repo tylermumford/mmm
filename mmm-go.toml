@@ -1,0 +1,31 @@
+# Imagining a set of mmm commands for a particular Go project
+version = "0.0.1"
+
+[command]
+build = "go build"
+run   = "go run ."
+watch = "watchexec -r go run ."
+test  = "go test"
+
+# A multiline example from an Angular project
+
+[command.deploy]
+script = '''
+#!/bin/zsh
+set -e
+
+echo 'Deploying Stock Market Game...'
+DEPLOY_PATH=stocks
+PATH_IN_TARGET_REPO=~/dev/tylermumford.github.io/$DEPLOY_PATH
+
+echo $PATH_IN_TARGET_REPO
+
+cd app
+ng build --prod --outputPath=$PATH_IN_TARGET_REPO --deployUrl=/$DEPLOY_PATH/ --baseHref=/$DEPLOY_PATH/
+
+cd $PATH_IN_TARGET_REPO
+git add .
+git commit -m 'Deploy Stock Market Game (deploy.sh)'
+git push
+'''
+
