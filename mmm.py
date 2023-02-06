@@ -2,6 +2,7 @@
 
 import tomllib
 import argparse
+import os
 
 # TOML-related constants
 FILE = "mmm.toml"
@@ -30,10 +31,13 @@ toRun = []
 
 selectedCommand = config[COMMAND][args.command]
 
-if isinstance(selectedCommand , str):
+if isinstance(selectedCommand, str):
     toRun.append(selectedCommand)
 elif isinstance(selectedCommand[SCRIPT], str):
     toRun.append(selectedCommand[SCRIPT])
-# TODO: Handle "script is an array of strings"
+elif isinstance(selectedCommand[SCRIPT], list):
+    toRun.extend(selectedCommand[SCRIPT])
 
-print(f"I would run {toRun}")
+for eachCommand in toRun:
+    print(eachCommand)
+    os.system(eachCommand)
