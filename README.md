@@ -22,6 +22,9 @@ cohesive set of commands for working with a codebase.
 
 Idea. Pre-alpha. Prototypes, untested, brand new.
 
+If you _like_ this idea, please let me know via a Star or a message on
+[Mastodon](https://mas.to/@tylermumford).
+
 ## Design notes
 
 This is not a "build system" in my mind. It's a project command organizer.
