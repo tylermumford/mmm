@@ -50,5 +50,26 @@ func main() {
 		os.Exit(5)
 	}
 
-	fmt.Printf("I would run %v\n", script)
+	scriptLines := []string{}
+	if s, ok := script.(string); ok {
+		scriptLines = append(scriptLines, s)
+	} else if ss, ok := script.([]string); ok {
+		scriptLines = ss
+	} else if si, ok := script.([]interface{}); ok {
+		for i := range si {
+			if s, ok := si[i].(string); ok {
+				scriptLines = append(scriptLines, s)
+			} else {
+				fmt.Printf("script array must contain strings, but found %T\n", si[i])
+				os.Exit(7)
+			}
+		}
+	} else {
+		fmt.Printf("script has unhandled Go type: %T\n", script)
+		os.Exit(6)
+	}
+
+	for i := range scriptLines {
+		fmt.Println(scriptLines[i])
+	}
 }
