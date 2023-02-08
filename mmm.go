@@ -5,6 +5,7 @@ package main
 
 import "fmt"
 import "os"
+import "strings"
 import "github.com/BurntSushi/toml"
 
 const FILE = "mmm.toml"
@@ -12,6 +13,15 @@ const FILE = "mmm.toml"
 type Config struct {
 	Version string
 	Command map[string]Command
+}
+
+// Returns the commands available for use.
+func (c *Config) Commands() []string {
+	result := []string{}
+	for i := range c.Command {
+		result = append(result, i)
+	}
+	return result
 }
 
 type Command struct {
@@ -33,8 +43,9 @@ func main() {
 	}
 
 	if len(os.Args) != 2 {
-		fmt.Println("no argument given; please specify a command")
-		os.Exit(3)
+		help := strings.Join(config.Commands(), ", ")
+		fmt.Printf("commands in %s: %s\n", FILE, help)
+		os.Exit(0)
 	}
 	arg := os.Args[1]
 
