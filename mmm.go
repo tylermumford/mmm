@@ -29,6 +29,8 @@ type Command struct {
 }
 
 func main() {
+	// 1. Load
+
 	data, err := os.ReadFile(FILE)
 	if err != nil {
 		fmt.Printf("could not read %s:\n%s\n", FILE, err)
@@ -41,6 +43,8 @@ func main() {
 		fmt.Printf("could not decode %s:\n%s\n", FILE, err)
 		os.Exit(2)
 	}
+
+	// 2. Get input
 
 	if len(os.Args) != 2 {
 		help := strings.Join(config.Commands(), ", ")
@@ -61,6 +65,8 @@ func main() {
 		os.Exit(5)
 	}
 
+	// 3. Get steps
+
 	scriptLines := []string{}
 	if s, ok := script.(string); ok {
 		scriptLines = append(scriptLines, s)
@@ -79,6 +85,8 @@ func main() {
 		fmt.Printf("script has unhandled Go type: %T\n", script)
 		os.Exit(6)
 	}
+
+	// 4. Act
 
 	for i := range scriptLines {
 		fmt.Println(scriptLines[i])
