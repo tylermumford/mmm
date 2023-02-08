@@ -17,6 +17,12 @@ cohesive set of commands for working with a codebase.
 
 - Make: centralizes development commands<br>
   mmm: yep, same purpose
+  
+## Wiki
+
+The [project wiki][wiki] is where I'm putting most of my thoughts for this.
+
+[wiki]: https://github.com/tylermumford/mmm/wiki
 
 ## Project status
 
