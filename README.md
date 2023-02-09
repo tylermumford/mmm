@@ -17,19 +17,27 @@ cohesive set of commands for working with a codebase.
 
 - Make: centralizes development commands<br>
   mmm: yep, same purpose
+
+## Project status
+
+This is an idea I've set aside.
+
+I really like this idea, but I discovered [just][] a few days after I
+wrote everything in this repo. The just command seems
+to support pretty much everything I wanted mmm to support. I'm going to
+keep this repo up because I'll look back on it fondly one day, but
+I don't think I'll develop this idea.
+
+[just]: https://just.systems/
+
+If you _like_ this idea, please let me know via a Star or a message on
+[Mastodon](https://mas.to/@tylermumford).
   
 ## Wiki
 
 The [project wiki][wiki] is where I'm putting most of my thoughts for this.
 
 [wiki]: https://github.com/tylermumford/mmm/wiki
-
-## Project status
-
-Idea. Pre-alpha. Prototypes, untested, brand new.
-
-If you _like_ this idea, please let me know via a Star or a message on
-[Mastodon](https://mas.to/@tylermumford).
 
 ## Design notes
 
